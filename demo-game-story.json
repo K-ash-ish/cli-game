@@ -1,0 +1,69 @@
+{
+  "scenes": {
+    "start": {
+      "description": "You find yourself standing in front of a forked road. There are two paths, one to the left and one to the right.",
+      "choices": [
+        {
+          "option": "Go left",
+          "nextScene": "leftPath"
+        },
+        {
+          "option": "Go right",
+          "nextScene": "rightPath"
+        }
+      ]
+    },
+    "leftPath": {
+      "description": "You follow the left path and arrive at a beautiful lake.",
+      "choices": [
+        {
+          "option": "Go for a swim",
+          "nextScene": "swimInLake"
+        },
+        {
+          "option": "Go back to the forked road",
+          "nextScene": "start"
+        }
+      ]
+    },
+    "rightPath": {
+      "description": "You follow the right path and find a mysterious cave.",
+      "choices": [
+        {
+          "option": "Enter the cave",
+          "nextScene": "enterCave"
+        },
+        {
+          "option": "Go back to the forked road",
+          "nextScene": "start"
+        }
+      ]
+    },
+    "swimInLake": {
+      "description": "You enjoy swimming in the lake and feel refreshed. Time to continue your adventure!",
+      "choices": [
+        {
+          "option": "Go back to the forked road",
+          "nextScene": "start"
+        }
+      ]
+    },
+    "enterCave": {
+      "description": "As you enter the cave, you find a treasure chest!",
+      "choices": [
+        {
+          "option": "Open the treasure chest",
+          "nextScene": "openChest"
+        },
+        {
+          "option": "Leave the treasure chest and exit the cave",
+          "nextScene": "rightPath"
+        }
+      ]
+    },
+    "openChest": {
+      "description": "You open the treasure chest and find a beautiful gem! Congratulations on completing the adventure!",
+      "choices": []
+    }
+  }
+}

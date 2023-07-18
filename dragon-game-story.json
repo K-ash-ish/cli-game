@@ -1,0 +1,82 @@
+{
+  "scenes": {
+    "start": {
+      "description": "You are a brave knight on a quest to slay a fearsome dragon. You find yourself at the base of the mountain where the dragon resides.",
+      "choices": [
+        {
+          "option": "Climb the mountain path.",
+          "nextScene": "mountainPath"
+        },
+        {
+          "option": "Enter the dark cave.",
+          "nextScene": "darkCave"
+        }
+      ]
+    },
+    "mountainPath": {
+      "description": "You start climbing the mountain path. It's a treacherous climb, but you manage to avoid falling rocks and other dangers. You come across an old hermit.",
+      "choices": [
+        {
+          "option": "Ask the hermit for advice.",
+          "nextScene": "hermitAdvice"
+        },
+        {
+          "option": "Ignore the hermit and continue climbing.",
+          "nextScene": "dragonLair"
+        }
+      ]
+    },
+    "hermitAdvice": {
+      "description": "The hermit warns you that the dragon is nearly invincible from the front. To defeat the beast, you must approach it from behind. He then shows you a hidden path.",
+      "choices": [
+        {
+          "option": "Thank the hermit and take the hidden path.",
+          "nextScene": "hiddenPath"
+        }
+      ]
+    },
+    "hiddenPath": {
+      "description": "You follow the hidden path, evading more dangers of the mountain. Finally, you arrive at the dragon's lair, approaching the beast from behind.",
+      "choices": [
+        {
+          "option": "Attack the dragon from behind!",
+          "nextScene": "victory"
+        }
+      ]
+    },
+    "darkCave": {
+      "description": "You enter the dark cave and encounter a pack of vicious wolves. You manage to fend them off and continue deeper into the cave.",
+      "choices": [
+        {
+          "option": "Press on through the cave.",
+          "nextScene": "dragonLair"
+        },
+        {
+          "option": "Exit the cave and climb the mountain path.",
+          "nextScene": "mountainPath"
+        }
+      ]
+    },
+    "dragonLair": {
+      "description": "You find yourself in the dragon's lair, facing the fearsome beast head-on. The dragon sees you coming and attacks!",
+      "choices": [
+        {
+          "option": "Fight the dragon!",
+          "nextScene": "defeat"
+        },
+        {
+          "option": "Try to sneak around the dragon.",
+          "nextScene": "defeat"
+        }
+      ]
+    },
+    "victory": {
+      "description": "You've defeated the mighty dragon and saved the kingdom! Your name will be remembered as a hero!",
+      "choices": []
+    },
+    "defeat": {
+      "description": "The dragon breathes fire, and you are defeated. Your quest ends in tragedy.",
+      "choices": []
+    }
+  }
+}
