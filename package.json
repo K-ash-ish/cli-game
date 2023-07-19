@@ -16,6 +16,8 @@
   "dependencies": {
     "chalk": "^4.1.2",
     "commander": "^11.0.0",
-    "inquirer": "^8.2.4"
+    "figlet": "^1.6.0",
+    "inquirer": "^8.2.4",
+    "nanospinner": "^1.1.0"
   }
 }

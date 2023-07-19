@@ -2,6 +2,25 @@ const { Command } = require("commander");
 const gameStory = require("./dragon-game-story.json");
 const inquirer = require("inquirer");
 const chalk = require("chalk");
+const figlet = require("figlet");
+const { createSpinner } = require("nanospinner");
+
+const spinner = createSpinner("Loading scene...");
+const loading = async () => {
+  spinner.start();
+  await new Promise((resolve) => setTimeout(resolve, 500));
+  spinner.success();
+};
+const asciiChar = (text) => {
+  figlet(text, function (err, data) {
+    if (err) {
+      console.log("Something went wrong...");
+      console.dir(err);
+      return;
+    }
+    console.log(chalk.cyanBright(data));
+  });
+};
 
 const gameOver = (result, desc) => {
   const description =
@@ -14,23 +33,26 @@ const restartExit = () => {
     .prompt([
       {
         type: "input",
-        message: `You want to restart/exit. *${chalk.greenBright(
+        message: `You want to restart/exit. * ${chalk.greenBright(
           "start"
-        )} *${chalk.red("exit")}`,
+        )} * ${chalk.red("exit/e")}`,
         name: "selectedOption",
       },
     ])
     .then((answer) => {
-      if (answer.selectedOption === "exit") {
-        console.log("Thank You");
+      if (answer.selectedOption === "exit" || answer.selectedOption === "e") {
+        asciiChar("Thank You.");
         return;
       }
       startGame(answer.selectedOption);
     });
 };
 
-const startGame = (command) => {
+const startGame = async (command) => {
   const scene = gameStory.scenes[command];
+
+  await loading();
+
   if (command === "victory" || command === "defeat") {
     gameOver(command, scene.description);
     restartExit();
@@ -39,7 +61,7 @@ const startGame = (command) => {
 
   console.log("\n" + chalk.cyanBright(scene.description) + "\n");
 
-  inquirer
+  const nextScene = await inquirer
     .prompt([
       {
         type: "list",
@@ -49,11 +71,11 @@ const startGame = (command) => {
       },
     ])
     .then((answer) => {
-      const nextScene = scene.choices.find(
+      return scene.choices.find(
         (choice) => choice.option === answer.selectedOption
       ).nextScene;
-      startGame(nextScene);
     });
+  await startGame(nextScene);
 };
 const program = new Command();
 program
