@@ -1,5 +1,5 @@
 {
-  "name": "rpg-game",
+  "name": "rpg-dragongame",
   "version": "1.0.0",
   "description": "CLI based RPG game.",
   "main": "index.js",
@@ -11,6 +11,9 @@
     "game",
     "node"
   ],
+  "bin": {
+    "dragon-rpg": "index.js"
+  },
   "author": "Kashish",
   "license": "ISC",
   "dependencies": {
