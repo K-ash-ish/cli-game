@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const { Command } = require("commander");
 const gameStory = require("./dragon-game-story.json");
 const inquirer = require("inquirer");
